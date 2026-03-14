@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button onclick="apriPopup()">Settings</button>
+
+    <div id="popupImpostazioni">
+        <h1 align="center">Impostazioni</h1>
+        <label style="margin-left: 10%;">Nome: <input id="inputValoreNome" type="text" autocomplete="off"/></label><br><br>
+        <button onclick="salva()" id="saveButton">Salva</button>
+        <button onclick="chiudiPopup()" id="escButton">Annulla</button>
+    </div>
+    <script> //Script che apre le impostazioni per modificare i parametri
+        window.NAME = localStorage.getItem('NAME') ?? 'User';
+
+        function apriPopup() {
+            document.getElementById('inputValoreNome').value = window.NAME;
+            document.getElementById('popupImpostazioni').style.display = 'block';
+        }
+        function salva() {
+            window.NAME = document.getElementById('inputValoreNome').value;
+            localStorage.setItem('NAME', window.NAME); 
+            chiudiPopup();
+            stampaMessaggio();
+        }
+        function chiudiPopup() {
+            document.getElementById('popupImpostazioni').style.display = 'none';
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') chiudiPopup();
+            if (e.key === 'Enter') salva();
+        });
+    </script>
+    <div id="clock"></div>
+    <div id="date"></div>
+    <div id="welcomeText"></div>
+    <script> //Script per l'ora, la data e il messaggio di benvenuto
+        const DAYS = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+        const MONTHS = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno',
+                        'Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+        console.log(window.NAME);
+
+        function update() {
+        const oraAttuale = new Date();
+        const h = String(oraAttuale.getHours()).padStart(2, '0');
+        const m = String(oraAttuale.getMinutes()).padStart(2, '0');
+
+        document.getElementById('clock').textContent = `${h}:${m}`;
+        document.getElementById('date').textContent =
+            `${DAYS[oraAttuale.getDay()]} ${oraAttuale.getDate()} ${MONTHS[oraAttuale.getMonth()]}`;
+        }
+
+        update();
+        setInterval(update, 1000);
+
+        function stampaMessaggio() {
+            const MESSAGGIDISPONIBILI = ['Buongiorno', 'Buon pomeriggio', 'Buonasera'];
+            const oraAttuale = new Date();
+            const h = oraAttuale.getHours;
+            let MESSAGGIO = '';
+
+            if (h >= 5 && h < 14) MESSAGGIO = MESSAGGIDISPONIBILI[0];
+            else if (h >= 14 && h < 18) MESSAGGIO = MESSAGGIDISPONIBILI[1];
+            else MESSAGGIO = MESSAGGIDISPONIBILI[2];
+            
+            document.getElementById('welcomeText').textContent = `${MESSAGGIO}, ${NAME}!`;
+        }
+        stampaMessaggio()
+    </script>
+
+    <input type="text" id="searchBar" autocomplete="off">
+    <script> //Script per la ricerca sui vari motori di ricerca
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const query = document.getElementById('searchBar').value;
+                if (e.shiftKey) {
+                    window.location.href = 'https://www.duckduckgo.com/search?q=' + encodeURIComponent(query);
+                } else {
+                   window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,104 @@
+body{
+    background-color: rgb(20, 20, 20);
+    font-family: "Google Sans", sans-serif;
+}
+
+#clock{
+    color: rgb(184, 226, 156);
+    font-weight: 700;
+    font-size: 50px;
+    user-select: none;
+}
+#date{
+    color: rgb(207, 209, 203);
+    font-weight: 500;
+    font-size: 18px;
+    user-select: none;
+}
+#welcomeText{
+    color: rgb(207, 209, 203);
+    font-weight: 600;
+    font-size: 25px;
+    margin-top: 20px;
+}
+#searchBar{
+    width: 60%;
+    background: #455e45;
+    background: linear-gradient(212deg, rgb(38, 39, 38) 0%, rgb(17, 22, 14) 100%);
+    border: 1px solid rgba(173, 173, 173, 0.329);
+    height: 35px;
+    border-radius: 45px;
+    color: rgb(207, 209, 203);
+    font-weight: 400;
+    padding-left: 15px;
+    font-size: 16px;
+    transition: .3s ease-in-out;
+    font-family: "Google Sans", sans-serif;
+}
+#searchBar:hover{
+    border: 0.5px solid #455e45;
+}
+
+#popupImpostazioni{
+    color: rgb(207, 209, 203);
+    display:none;
+    position:fixed;
+    top:20%; left:20%; right: 20%; bottom: 40%;
+    background: linear-gradient(212deg, rgb(25, 27, 25) 0%, rgb(20, 20, 20) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.144);
+    border-radius:45px;
+    z-index:1000;
+}
+#popupImpostazioni input{
+    background-color: rgb(20, 20, 20);
+    border: 1px solid rgb(207, 209, 203);
+    color: rgb(207, 209, 203);
+    padding-left: 20px;
+    height: 44px;
+    margin-left: 20px;
+    width: 100%;
+    border-radius: 45px;
+    width: 60%;
+    font-size: 16px;
+    font-family: "Google Sans", sans-serif;
+}
+#saveButton{
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+    width: 100px;
+    height: 44px;
+    background-color: rgb(20, 20, 20);
+    color: #477747;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 45px;
+    border: #477747 2px solid;
+    transition: .3s ease-in-out;
+}
+#saveButton:hover{
+    background-color: #477747;
+    color: rgb(207, 209, 203);
+}
+#escButton{
+    position: absolute;
+    bottom: 0;
+    left: 60%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+    width: 100px;
+    height: 44px;
+    background-color: rgb(20, 20, 20);
+    color: #941919;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 45px;
+    border: #941919 2px solid;
+    transition: .3s ease-in-out;
+}
+#escButton:hover{
+    background-color: #941919;
+    color: rgb(207, 209, 203);
+}
