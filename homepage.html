@@ -16,15 +16,33 @@
     <div id="popupImpostazioni">
         <h1 align="center">Impostazioni</h1>
         <label style="margin-left: 10%;">Nome: <input id="inputValoreNome" type="text" autocomplete="off"/></label><br><br>
+        <h1 align="center">Link</h1>
+        <div id="linkListSettings"></div>
         <button onclick="salva()" id="saveButton">Salva</button>
         <button onclick="chiudiPopup()" id="escButton">Annulla</button>
+    </div>
+    <div id="popupLink">
+        <h1 align="center">Aggiungi un link</h1>
+        <label style="margin-left: 10%;">Nome: <input id="inputNomeSito" type="text" autocomplete="off" placeholder="Example"/></label><br><br>
+        <label style="margin-left: 10%;">URL: <input id="inputUrlSito" type="text" autocomplete="off" placeholder="https://example.com/"/></label><br><br>
+        <button onclick="salvaLink()" id="saveButtonn">Salva</button>
+        <button onclick="chiudiPopupLink()" id="escButtonn">Annulla</button>
     </div>
 
     <div id="clock" align="center"></div>
     <div id="date" align="center"></div>
     <div id="welcomeText" align="center"></div>
-    <div align="center"><input type="text" id="searchBar" autocomplete="off"></div>
-    
+    <div align="center"><input type="text" id="searchBar" autocomplete="off" placeholder="Cerca qui..."></div>
+    <div id="motoriDiRicerca" align="center">
+        <button class="search-engine" data-url="https://www.google.com/search?q="><img src="/assets/google.svg" width="50px"></button>
+        <button class="search-engine" data-url="https://duckduckgo.com/?q="><img src="/assets/duckduckgo.svg" width="50px"></button>
+        <button class="search-engine" data-url="https://search.yahoo.com/search?p="><img src="/assets/yahoo.svg" width="50px"></button>
+        <button class="search-engine" data-url="https://yandex.com/search/?text="><img src="/assets/yandex.svg" width="50px"></button>
+    </div>
+    <div align="center" style="margin-top: 30px;">Link salvati</div>
+    <div id="linkContainer"></div>
+
+
     <script src="script.js"></script>
 </body>
 </html>

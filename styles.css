@@ -1,6 +1,9 @@
 body{
     background-color: rgb(20, 20, 20);
     font-family: "Google Sans", sans-serif;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    color: rgb(207, 209, 203);
 }
 
 #iconButton{
@@ -18,6 +21,7 @@ body{
     font-weight: 700;
     font-size: 50px;
     user-select: none;
+    margin-top: 10dvh;
 }
 #date{
     color: rgb(207, 209, 203);
@@ -30,13 +34,14 @@ body{
     font-weight: 600;
     font-size: 25px;
     margin-top: 20px;
+    margin-bottom: 10px;
 }
 #searchBar{
     width: 60%;
     background: #455e45;
     background: linear-gradient(212deg, rgb(38, 39, 38) 0%, rgb(17, 22, 14) 100%);
     border: 1px solid rgba(173, 173, 173, 0.329);
-    height: 35px;
+    height: 50px;
     border-radius: 45px;
     color: rgb(207, 209, 203);
     font-weight: 400;
@@ -48,12 +53,36 @@ body{
 #searchBar:hover{
     border: 0.5px solid #455e45;
 }
+.search-error {
+    border: 2px solid #941919 !important;
+    animation: shake 0.3s;
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+.search-engine{
+    background-color: #00000000;
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(173, 173, 173, 0.329);
+    border-radius: 30px;
+    overflow: hidden;
+    transition: .2s ease-in-out;
+    margin-left: 10px; margin-right: 10px; margin-bottom: 50px; margin-top: 30px;
+}
+.search-engine:hover{
+    background-color: #5a5a5a85;
+}
 
 #popupImpostazioni{
     color: rgb(207, 209, 203);
     display:none;
     position:fixed;
-    top:20%; left:20%; right: 20%; bottom: 40%;
+    top:10%; left:20%; right: 20%; bottom: 30%;
     background: linear-gradient(212deg, rgb(25, 27, 25) 0%, rgb(20, 20, 20) 100%);
     border: 2px solid rgba(255, 255, 255, 0.144);
     border-radius:45px;
@@ -66,12 +95,39 @@ body{
     padding-left: 20px;
     height: 44px;
     margin-left: 20px;
-    width: 100%;
     border-radius: 45px;
-    width: 60%;
+    width: 68%;
     font-size: 16px;
     font-family: "Google Sans", sans-serif;
 }
+#linkListSettings {
+    max-height: 200px;
+    overflow-y: auto;
+    scrollbar-width:auto;
+    scrollbar-color: rgba(255, 255, 255, 0.144) transparent;
+    transition: .2s ease-in-out;
+}
+#linkListSettings div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 10%;
+    border-bottom: 1px rgba(255, 255, 255, 0.144) solid;
+    margin-left: 10%; margin-right: 10%;
+    padding-bottom: 15px; padding-top: 15px;
+}
+#linkListSettings button {
+    border: #941919 2px solid;
+    height: 50px;
+    width: 50px;
+    border-radius: 20px;
+    background-color: #20202000;
+    transition: .3s ease-in-out;
+}
+#linkListSettings button:hover{
+    background-color: rgb(207, 209, 203);
+}
+
 #saveButton{
     position: absolute;
     bottom: 0;
@@ -113,4 +169,97 @@ body{
 #escButton:hover{
     background-color: #941919;
     color: rgb(207, 209, 203);
+}
+
+#popupLink{
+    color: rgb(207, 209, 203);
+    display:none;
+    position:fixed;
+    top:20%; left:20%; right: 20%; bottom: 40%;
+    background: linear-gradient(212deg, rgb(25, 27, 25) 0%, rgb(20, 20, 20) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.144);
+    border-radius:45px;
+    z-index:1000;
+}
+#saveButtonn{
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+    width: 100px;
+    height: 44px;
+    background-color: rgb(20, 20, 20);
+    color: #477747;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 45px;
+    border: #477747 2px solid;
+    transition: .3s ease-in-out;
+}
+#saveButtonn:hover{
+    background-color: #477747;
+    color: rgb(207, 209, 203);
+    cursor: pointer;
+}
+#escButtonn{
+    position: absolute;
+    bottom: 0;
+    left: 60%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+    width: 100px;
+    height: 44px;
+    background-color: rgb(20, 20, 20);
+    color: #941919;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 45px;
+    border: #941919 2px solid;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+#escButtonn:hover{
+    background-color: #941919;
+    color: rgb(207, 209, 203);
+}
+#popupLink input{
+    background-color: rgb(20, 20, 20);
+    border: 1px solid rgb(207, 209, 203);
+    color: rgb(207, 209, 203);
+    padding-left: 20px;
+    height: 44px;
+    margin-left: 20px;
+    border-radius: 45px;
+    width: 68%;
+    font-size: 16px;
+    font-family: "Google Sans", sans-serif;
+}
+#linkContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 15%; margin-right: 15%;
+}
+#linkContainer button{
+    background-color: #00000000;
+    width: 100px;
+    height: 100px;
+    vertical-align: center;
+    padding: 18px;
+    border: 1px solid rgba(173, 173, 173, 0.329);
+    border-radius: 30px;
+    color: rgb(207, 209, 203);
+    font-family: "Google Sans", sans-serif;
+    font-size: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: .2s ease-in-out;
+}
+#linkContainer button:hover{
+    background-color: #5a5a5a85;
 }
