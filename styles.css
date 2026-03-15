@@ -3,6 +3,16 @@ body{
     font-family: "Google Sans", sans-serif;
 }
 
+#iconButton{
+    background-color: #455e4500;
+    border: 0px none;
+    position: absolute;
+    left: 96%;
+    top: 2%;
+    user-select: none;
+    cursor:pointer;
+}
+
 #clock{
     color: rgb(184, 226, 156);
     font-weight: 700;
@@ -81,6 +91,7 @@ body{
 #saveButton:hover{
     background-color: #477747;
     color: rgb(207, 209, 203);
+    cursor: pointer;
 }
 #escButton{
     position: absolute;
@@ -97,6 +108,7 @@ body{
     border-radius: 45px;
     border: #941919 2px solid;
     transition: .3s ease-in-out;
+    cursor: pointer;
 }
 #escButton:hover{
     background-color: #941919;
