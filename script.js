@@ -16,7 +16,7 @@ function aggiornaListaSettings() {
         
         const removeBtn = document.createElement('button');
         const icon = document.createElement('img');
-        icon.src = '/assets/trash.svg';
+        icon.src = 'assets/trash.svg';
         icon.width = 30;
         icon.draggable = false;
         removeBtn.appendChild(icon)
